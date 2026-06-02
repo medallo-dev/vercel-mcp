@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://esm.sh; style-src 'self'; connect-src 'self' https://*.supabase.co; base-uri 'self';"
+    />
+    <title>Authorize · MCP Example</title>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div id="app">
+        <p class="sub">Loading authorization request…</p>
+      </div>
+    </div>
+    <script type="module" src="/js/consent.js"></script>
+  </body>
+</html>

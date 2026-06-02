@@ -1,0 +1,88 @@
+{
+  "name": "@medallo-dev/vercel-mcp",
+  "version": "1.0.0",
+  "description": "Vercel-hosted MCP framework with Supabase JWT/OAuth auth",
+  "type": "module",
+  "license": "UNLICENSED",
+  "author": "medallo-dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medallo-dev/vercel-mcp.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist",
+    "schema",
+    "docs",
+    "README.md",
+    "AGENTS.md"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./auth": {
+      "types": "./dist/auth/index.d.ts",
+      "import": "./dist/auth/index.js"
+    },
+    "./logging": {
+      "types": "./dist/logging/index.d.ts",
+      "import": "./dist/logging/index.js"
+    },
+    "./audit": {
+      "types": "./dist/audit/index.d.ts",
+      "import": "./dist/audit/index.js"
+    },
+    "./jsonrpc": {
+      "types": "./dist/jsonrpc/index.d.ts",
+      "import": "./dist/jsonrpc/index.js"
+    },
+    "./transport": {
+      "types": "./dist/transport/index.d.ts",
+      "import": "./dist/transport/index.js"
+    },
+    "./env": {
+      "types": "./dist/env/index.d.ts",
+      "import": "./dist/env/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "biome check .",
+    "fmt": "biome check --write .",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run --project unit",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "mcp:dev": "cd example && vercel dev"
+  },
+  "keywords": [
+    "mcp",
+    "vercel",
+    "supabase"
+  ],
+  "packageManager": "pnpm@10.11.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@supabase/supabase-js": "2.106.0",
+    "mcp-handler": "^1.1.0",
+    "pino": "^10.3.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "@supabase/ssr": "^0.10.3",
+    "@types/node": "^24.0.0",
+    "cookie": "^1.1.1",
+    "typescript": "^6.0.3",
+    "vercel": "^54.2.0",
+    "vitest": "^4.1.7"
+  }
+}

@@ -1,0 +1,108 @@
+# AGENTS.md
+
+Guidance for AI agents working in **vercel-mcp** — an internal library for Vercel-hosted MCP + Supabase auth (`@medallo-dev/vercel-mcp`).
+
+## Overview
+
+This repo is **not** a deployable product. It provides:
+
+- Supabase JWT gate (`withSupabaseMcpAuth`)
+- Generic JSON-RPC (`createJsonRpcHandler`)
+- Vercel transport factory (`createMcpPostHandler`)
+- Optional `mcp.interaction_log` audit
+- Reference app under `example/`
+
+Domain tools and app schemas belong in **consumer repos** (e.g. recruiting-engine), not here.
+
+## Commands
+
+```bash
+pnpm install
+pnpm lint
+pnpm fmt
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm check          # run after every change
+pnpm mcp:dev        # example app on Vercel dev
+```
+
+## Layout
+
+```
+src/auth/           Supabase JWT validation + middleware
+src/logging/        Pino + request/session ALS
+src/audit/          interaction_log (service_role, mcp schema)
+src/jsonrpc/        Generic JSON-RPC router
+src/transport/      createMcpPostHandler for Vercel api/
+src/env/            loadLocalEnv, public Supabase config
+src/types/          Hand-maintained McpDatabase types
+example/            Reference consumer wiring (not published)
+schema/mcp.sql      Optional audit migration for consumers
+docs/               Human + agent documentation (shipped in npm tarball)
+```
+
+## Boundaries
+
+**In this package:** auth gate (`getUser`), logging, generic JSON-RPC, optional audit.
+
+**Never in this package:** domain tools, recruiting/app schemas, `pg`, Supabase CLI as runtime dep, full generated `Database` types.
+
+## Documentation map
+
+| If you are… | Read first |
+| --- | --- |
+| Wiring a **consumer** repo | [docs/integrate-your-app.md](docs/integrate-your-app.md), [docs/environment.md](docs/environment.md) |
+| Changing **this** repo `src/` | [docs/api-reference.md](docs/api-reference.md) |
+| Installing the package | [docs/install.md](docs/install.md) |
+| Publishing a release | [docs/publishing.md](docs/publishing.md) |
+| Debugging deploy issues | [docs/troubleshooting.md](docs/troubleshooting.md) |
+
+Do not duplicate long guides in this file — link to `docs/`.
+
+## Mandatory reading
+
+- **Consumer repo work:** [docs/integrate-your-app.md](docs/integrate-your-app.md) + [docs/environment.md](docs/environment.md)
+- **Framework changes:** [docs/api-reference.md](docs/api-reference.md) + skill `maintain-vercel-mcp-framework`
+
+## Public API (semver)
+
+Key types: `VercelMcpServerDefinition`, `createJsonRpcHandler`, `createMcpPostHandler`, `withSupabaseMcpAuth`.
+
+Breaking changes require semver major bump and release notes. See [docs/publishing.md](docs/publishing.md).
+
+## Testing
+
+- Colocated `src/**/*.test.ts`
+- Mock Supabase in auth tests; stub `VercelMcpServerDefinition` for JSON-RPC tests
+- No live Supabase in CI
+
+## Releases
+
+Bump `package.json` version → PR → GitHub Release tag `vX.Y.Z` → `publish.yml` pushes to GitHub Packages.
+
+## Cursor Configuration
+
+Project skills under `.cursor/skills/`:
+
+| Skill | When to use |
+| --- | --- |
+| [use-vercel-mcp](.cursor/skills/use-vercel-mcp/SKILL.md) | Consumer app integration (start here) |
+| [integrate-vercel-mcp-consumer](.cursor/skills/integrate-vercel-mcp-consumer/SKILL.md) | Full consumer wiring checklist |
+| [maintain-vercel-mcp-framework](.cursor/skills/maintain-vercel-mcp-framework/SKILL.md) | Editing `src/`, deps, CI |
+| [update-mcp-audit-schema](.cursor/skills/update-mcp-audit-schema/SKILL.md) | `schema/mcp.sql` or audit types |
+
+## Syncing from recruiting-engine
+
+Port **generic** fixes from:
+
+- `mcp/auth-vercel.ts` → `src/auth/supabase-mcp-auth.ts`
+- `mcp/jsonrpc-vercel.ts` → `src/jsonrpc/handle-json-rpc.ts` (keep registry injection)
+- `mcp/logger-vercel.ts` → `src/logging/logger-vercel.ts`
+- `mcp/interaction-log.ts` → `src/audit/interaction-log.ts`
+
+Keep in recruiting-engine: `recruiting-tools.ts`, `service.ts`, `clay-ingest-mcp.ts`, `recruiting.sql`.
+
+## Consumer integration
+
+Downstream repos add `@medallo-dev/vercel-mcp` from GitHub Packages, implement `VercelMcpServerDefinition`, and copy patterns from `example/`. See skill `integrate-vercel-mcp-consumer`.

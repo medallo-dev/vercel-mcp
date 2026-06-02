@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://esm.sh; style-src 'self'; connect-src 'self' https://*.supabase.co; base-uri 'self';"
+    />
+    <title>Sign in · MCP Example</title>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h1>Sign in</h1>
+      <p class="sub">
+        Sign in with email and password, or use Google to continue.
+      </p>
+      <p id="error" class="err" role="alert"></p>
+      <div id="session-loading" class="session-loading">
+        <p class="muted">Checking session…</p>
+      </div>
+      <div id="sign-in-panel" hidden>
+        <form id="password-form" class="form-stack" autocomplete="on">
+          <label>
+            Email
+            <input
+              name="email"
+              type="email"
+              inputmode="email"
+              autocomplete="username"
+              required
+            />
+          </label>
+          <label>
+            Password
+            <input
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+          <button type="submit" class="btn-primary" id="password-sign-in">Sign in</button>
+        </form>
+        <div class="divider">or</div>
+        <button type="button" class="btn-google" id="google-sign-in">
+          Continue with Google
+        </button>
+        <p class="muted muted-note">
+          After signing in you will return to the page that requested access.
+        </p>
+      </div>
+      <div id="logged-in-panel" class="logged-in-panel" hidden>
+        <p class="logged-in-message" id="logged-in-message"></p>
+        <button type="button" class="btn-secondary" id="logout">Logout</button>
+      </div>
+    </div>
+    <script type="module" src="/js/login.js"></script>
+  </body>
+</html>
