@@ -1,6 +1,6 @@
 {
   "name": "@medallo-dev/vercel-mcp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Vercel-hosted MCP framework with Supabase JWT/OAuth auth",
   "type": "module",
   "license": "UNLICENSED",
