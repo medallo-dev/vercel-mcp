@@ -38,7 +38,7 @@ See [`.npmrc.example`](../.npmrc.example) in this repo.
 ### 2. Add the dependency
 
 ```bash
-pnpm add @medallo-dev/vercel-mcp@^1.0.0
+pnpm add @medallo-dev/vercel-mcp@^0.0.0
 ```
 
 ### 3. GitHub Actions (consumer CI)

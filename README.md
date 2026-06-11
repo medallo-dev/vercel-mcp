@@ -24,7 +24,7 @@ Published privately to GitHub Packages as `@medallo-dev/vercel-mcp`.
 
 ```bash
 # Configure .npmrc — see docs/install.md
-pnpm add @medallo-dev/vercel-mcp@^1.0.0
+pnpm add @medallo-dev/vercel-mcp@^0.0.0
 ```
 
 ## Development (this repo)

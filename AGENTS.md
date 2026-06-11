@@ -24,6 +24,8 @@ pnpm typecheck
 pnpm test
 pnpm build
 pnpm check          # run after every change
+pnpm changeset      # record a semver bump for the current PR (required before publishing)
+pnpm release        # build and publish to GitHub Packages
 pnpm mcp:dev        # example app on Vercel dev
 ```
 
@@ -79,7 +81,7 @@ Breaking changes require semver major bump and release notes. See [docs/publishi
 
 ## Releases
 
-Bump `package.json` version → PR → GitHub Release tag `vX.Y.Z` → `publish.yml` pushes to GitHub Packages.
+Add a changeset in your PR (`pnpm changeset`) → merge to `main` → merge the **"chore: version packages"** PR → [`publish.yml`](.github/workflows/publish.yml) pushes to GitHub Packages. See [docs/publishing.md](docs/publishing.md).
 
 ## Cursor Configuration
 
