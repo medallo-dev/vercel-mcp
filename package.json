@@ -1,6 +1,6 @@
 {
   "name": "@medallo-dev/vercel-mcp",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Vercel-hosted MCP framework with Supabase JWT/OAuth auth",
   "type": "module",
   "license": "UNLICENSED",
@@ -58,6 +58,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run --project unit",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "changeset": "changeset",
+    "release": "pnpm build && node scripts/publish-packages.mjs",
     "mcp:dev": "cd example && vercel dev"
   },
   "keywords": [
@@ -77,6 +79,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@changesets/cli": "2.31.0",
     "@biomejs/biome": "^2.2.0",
     "@supabase/ssr": "^0.10.3",
     "@types/node": "^24.0.0",
