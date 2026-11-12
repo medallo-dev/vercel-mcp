@@ -1,8 +1,8 @@
 # @medallo-dev/vercel-mcp
 
-Internal library for hosting **Model Context Protocol (MCP)** servers on **Vercel** with **Supabase** JWT/OAuth authentication, structured logging, optional audit logging, and a generic JSON-RPC router.
+Open-source library for hosting **Model Context Protocol (MCP)** servers on **Vercel** with **Supabase** JWT/OAuth authentication, structured logging, optional audit logging, and a generic JSON-RPC router.
 
-Published privately to GitHub Packages as `@medallo-dev/vercel-mcp`.
+Published to GitHub Packages as `@medallo-dev/vercel-mcp`.
 
 ## Documentation
 
@@ -35,6 +35,10 @@ pnpm check          # lint + typecheck + test + build
 pnpm mcp:dev        # vercel dev from example/
 ```
 
+## Contributing
+
+Contributions are welcome! Read [CONTRIBUTING.md](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md). Report security issues privately per [SECURITY.md](SECURITY.md).
+
 ## License
 
-UNLICENSED — medallo-dev internal use.
+[MIT](LICENSE)

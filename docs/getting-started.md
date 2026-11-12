@@ -12,7 +12,7 @@ prerequisites: []
 
 ## What problem this solves
 
-`@medallo-dev/vercel-mcp` is an internal library for hosting a **Model Context Protocol (MCP)** server on **Vercel** with **Supabase** as the identity provider. You get JWT validation, OAuth metadata, structured logging, optional audit logging, and a generic JSON-RPC router—without building a bespoke auth server.
+`@medallo-dev/vercel-mcp` is a library for hosting a **Model Context Protocol (MCP)** server on **Vercel** with **Supabase** as the identity provider. You get JWT validation, OAuth metadata, structured logging, optional audit logging, and a generic JSON-RPC router—without building a bespoke auth server.
 
 ## Architecture
 

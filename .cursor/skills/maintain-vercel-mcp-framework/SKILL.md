@@ -2,7 +2,7 @@
 name: maintain-vercel-mcp-framework
 description: >-
   Maintain @medallo-dev/vercel-mcp framework code: src modules, exports, tests,
-  Biome, CI, or port generic fixes from recruiting-engine. Use when editing vercel-mcp src/.
+  Biome, or CI. Use when editing vercel-mcp src/.
 ---
 
 # Maintain vercel-mcp framework
@@ -17,6 +17,6 @@ description: >-
 6. Run **`pnpm check`** before finishing.
 7. Breaking API changes: semver bump, release notes, note consumer impact — **[docs/publishing.md](../../docs/publishing.md)**.
 
-## Sync from recruiting-engine
+## Scope
 
-Port generic layers only (auth-vercel, jsonrpc-vercel, logger-vercel, interaction-log). Keep recruiting tools in recruiting-engine.
+Generic framework code only. Domain tools and app schemas stay in consumer repos. See [CONTRIBUTING.md](../../CONTRIBUTING.md).

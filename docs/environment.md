@@ -44,7 +44,7 @@ SUPABASE_ANON_KEY=your-local-anon-key
 
 ## Consumer-only variables
 
-The package does **not** read script-only JWT env vars (e.g. `RECRUITING_MCP_ACCESS_TOKEN`). Keep those in consumer CLI code outside this library.
+The package does **not** read script-only JWT env vars (e.g. a CLI access token). Keep those in consumer CLI code outside this library.
 
 ## Verification
 
