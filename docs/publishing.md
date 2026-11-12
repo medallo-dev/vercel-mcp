@@ -6,7 +6,7 @@ audience:
   - agent
 when_to_read: Cutting a new semver release of this package.
 prerequisites:
-  - Write access to medallo-dev/vercel-mcp
+  - Maintainer (write) access to medallo-dev/vercel-mcp
   - `pnpm check` passes on main
 ---
 
@@ -19,7 +19,7 @@ prerequisites:
 
 ## Automated flow
 
-Publishing is automated by [`.github/workflows/publish.yml`](../.github/workflows/publish.yml) on every push to `main`. Version bumps are managed with [changesets](https://github.com/changesets/changesets); artifacts are pushed to the private **medallo-dev** GitHub Packages npm registry.
+Publishing is automated by [`.github/workflows/publish.yml`](../.github/workflows/publish.yml) on every push to `main`. Version bumps are managed with [changesets](https://github.com/changesets/changesets); artifacts are pushed to the **medallo-dev** GitHub Packages npm registry (`https://npm.pkg.github.com`). The package is public; installing still requires a GitHub token with `read:packages` (see [install.md](./install.md)).
 
 Because `main` is protected, version bumps cannot be pushed directly by Actions. The workflow uses [changesets/action](https://github.com/changesets/action) to open a **"chore: version packages"** PR instead; publishing happens after that PR is merged.
 

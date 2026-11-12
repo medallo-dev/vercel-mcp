@@ -1,19 +1,19 @@
 ---
 title: Install @medallo-dev/vercel-mcp
-summary: Install the private package from GitHub Packages (local and CI).
+summary: Install the package from GitHub Packages (local and CI).
 audience:
   - human
   - agent
 when_to_read: Adding the dependency to a consumer repo or CI pipeline.
 prerequisites:
-  - GitHub org access to medallo-dev/vercel-mcp package
+  - A GitHub account and a token with read:packages
 ---
 
 # Install
 
 ## Prerequisites
 
-- Membership in the **medallo-dev** GitHub org with read access to the `vercel-mcp` package
+- A GitHub account. The package is public, but GitHub Packages' npm registry still requires an authenticated token (classic PAT or `gh auth token`) with `read:packages` to install
 - **pnpm** 10+ and Node **24+**
 
 ## Steps

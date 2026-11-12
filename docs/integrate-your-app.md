@@ -156,7 +156,7 @@ Compare your repo against [`example/`](../example/). Diff `api/`, `mcp/server.ts
 
 ## Common mistakes
 
-- Duplicating framework code from recruiting-engine instead of importing this package
+- Copying framework source into your app instead of importing this package
 - Missing `vercel.json` rewrite for `/mcp`
 - Forgetting `required: true` auth (default in `createMcpPostHandler`)
 - Empty `tools/list` because `listTools` returns `[]` when auth is missing—handle in your server definition

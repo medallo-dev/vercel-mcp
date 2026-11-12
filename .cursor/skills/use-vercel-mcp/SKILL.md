@@ -16,4 +16,4 @@ description: >-
 4. Env vars: **[docs/environment.md](../../docs/environment.md)**.
 5. Errors: **[docs/troubleshooting.md](../../docs/troubleshooting.md)**.
 
-Do not copy framework source from recruiting-engine—import this package instead.
+Do not copy framework source into your app—import this package instead.

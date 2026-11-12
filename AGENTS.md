@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guidance for AI agents working in **vercel-mcp** — an internal library for Vercel-hosted MCP + Supabase auth (`@medallo-dev/vercel-mcp`).
+Guidance for AI agents working in **vercel-mcp** — an open-source library for Vercel-hosted MCP + Supabase auth (`@medallo-dev/vercel-mcp`).
 
 ## Overview
 
@@ -12,7 +12,7 @@ This repo is **not** a deployable product. It provides:
 - Optional `mcp.interaction_log` audit
 - Reference app under `example/`
 
-Domain tools and app schemas belong in **consumer repos** (e.g. recruiting-engine), not here.
+Domain tools and app schemas belong in **consumer repos**, not here.
 
 ## Commands
 
@@ -48,7 +48,7 @@ docs/               Human + agent documentation (shipped in npm tarball)
 
 **In this package:** auth gate (`getUser`), logging, generic JSON-RPC, optional audit.
 
-**Never in this package:** domain tools, recruiting/app schemas, `pg`, Supabase CLI as runtime dep, full generated `Database` types.
+**Never in this package:** domain tools, app-specific schemas, `pg`, Supabase CLI as runtime dep, full generated `Database` types.
 
 ## Documentation map
 
@@ -94,16 +94,9 @@ Project skills under `.cursor/skills/`:
 | [maintain-vercel-mcp-framework](.cursor/skills/maintain-vercel-mcp-framework/SKILL.md) | Editing `src/`, deps, CI |
 | [update-mcp-audit-schema](.cursor/skills/update-mcp-audit-schema/SKILL.md) | `schema/mcp.sql` or audit types |
 
-## Syncing from recruiting-engine
+## Contributing
 
-Port **generic** fixes from:
-
-- `mcp/auth-vercel.ts` → `src/auth/supabase-mcp-auth.ts`
-- `mcp/jsonrpc-vercel.ts` → `src/jsonrpc/handle-json-rpc.ts` (keep registry injection)
-- `mcp/logger-vercel.ts` → `src/logging/logger-vercel.ts`
-- `mcp/interaction-log.ts` → `src/audit/interaction-log.ts`
-
-Keep in recruiting-engine: `recruiting-tools.ts`, `service.ts`, `clay-ingest-mcp.ts`, `recruiting.sql`.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for scope, workflow, and changeset rules. Security reports go through [SECURITY.md](SECURITY.md).
 
 ## Consumer integration
 

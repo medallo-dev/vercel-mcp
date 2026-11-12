@@ -1,0 +1,39 @@
+name: Bug report
+description: Something isn't working as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **Security issues:** please use [private reporting](https://github.com/medallo-dev/vercel-mcp/security/advisories/new) instead. Redact tokens and keys from anything you paste.
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: "0.0.1"
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node version / runtime
+      placeholder: "Node 24 on Vercel Fluid Compute"
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Actual vs. expected behaviour.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: Code, requests, or a repo link that reproduces the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      render: shell

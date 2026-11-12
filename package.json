@@ -3,11 +3,15 @@
   "version": "0.0.1",
   "description": "Vercel-hosted MCP framework with Supabase JWT/OAuth auth",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "author": "medallo-dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/medallo-dev/vercel-mcp.git"
+  },
+  "homepage": "https://github.com/medallo-dev/vercel-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/medallo-dev/vercel-mcp/issues"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -17,7 +21,8 @@
     "schema",
     "docs",
     "README.md",
-    "AGENTS.md"
+    "AGENTS.md",
+    "LICENSE"
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -64,8 +69,11 @@
   },
   "keywords": [
     "mcp",
+    "model-context-protocol",
     "vercel",
-    "supabase"
+    "supabase",
+    "oauth",
+    "jwt"
   ],
   "packageManager": "pnpm@10.11.0",
   "engines": {

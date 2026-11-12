@@ -3,7 +3,7 @@ name: integrate-vercel-mcp-consumer
 description: >-
   Wire a downstream repo to @medallo-dev/vercel-mcp: GitHub Packages install,
   VercelMcpServerDefinition, api routes, OAuth UI, vercel.json, and env vars.
-  Use when integrating recruiting-engine, hermes-coo, or any consumer with vercel-mcp.
+  Use when integrating any consumer app with vercel-mcp.
 ---
 
 # Integrate vercel-mcp in a consumer repo
